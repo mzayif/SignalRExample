@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRExample", "SingnalRExample\SignalRExample.csproj", "{F77C4CAC-7711-4227-800F-5C60F4CCF9F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRAdmin", "SignalRAdmin\SignalRAdmin.csproj", "{F4782A27-B02A-44B2-8000-8ADFA9B53D43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRExample", "SignalRExample\SignalRExample.csproj", "{9B42894D-7701-4A4D-BFE4-9FF9F3726C33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F77C4CAC-7711-4227-800F-5C60F4CCF9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F77C4CAC-7711-4227-800F-5C60F4CCF9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F77C4CAC-7711-4227-800F-5C60F4CCF9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F77C4CAC-7711-4227-800F-5C60F4CCF9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4782A27-B02A-44B2-8000-8ADFA9B53D43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4782A27-B02A-44B2-8000-8ADFA9B53D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4782A27-B02A-44B2-8000-8ADFA9B53D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4782A27-B02A-44B2-8000-8ADFA9B53D43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B42894D-7701-4A4D-BFE4-9FF9F3726C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B42894D-7701-4A4D-BFE4-9FF9F3726C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B42894D-7701-4A4D-BFE4-9FF9F3726C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B42894D-7701-4A4D-BFE4-9FF9F3726C33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-namespace SingnalRExample;
+namespace SignalRExample;
 
 public class WeatherForecast
 {
