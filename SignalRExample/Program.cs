@@ -1,4 +1,5 @@
 using SignalRExample.Hubs;
+using SignalRExample.Services;
 
 // ReSharper disable CommentTypo
 
@@ -17,6 +18,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddSignalR();
+        builder.Services.AddTransient<SignalRService>();
         builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyMethod()
                                                                                      .AllowAnyHeader()
                                                                                      .AllowCredentials()
