@@ -5,8 +5,8 @@ namespace SignalRExample.Services;
 
 public class SignalRService
 {
-    private readonly IHubContext<MyHub> _hubContext;
-    public SignalRService(IHubContext<MyHub> hubContext)
+    private readonly IHubContext<MessageHub> _hubContext;
+    public SignalRService(IHubContext<MessageHub> hubContext)
     {
         _hubContext = hubContext;
     }

@@ -1,3 +1,6 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using SignalRExample.Hubs;
 using SignalRExample.Services;
 
@@ -10,6 +13,8 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        var provider = builder.Services.BuildServiceProvider();
+        var configuration = provider.GetRequiredService<IConfiguration>();
 
         // Add services to the container.
 
@@ -24,6 +29,22 @@ public class Program
                                                                                      .AllowCredentials()
                                                                                      .SetIsOriginAllowed(origin => true)));
 
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = configuration["JWT:Issuer"],
+                    ValidAudience = configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:SecurityKey"])),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -35,15 +56,19 @@ public class Program
 
         app.UseHttpsRedirection();
 
-        app.UseAuthorization();
-        app.UseCors();
         app.UseRouting();
+        app.UseCors();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
-            // Burada Signal da tanýmlanan MyHub sýnýfýna özel bir url tanýmlanýr.
+            // Burada Signal da tanýmlanan MessageHub sýnýfýna özel bir url tanýmlanýr.
             // Bu þekilde ilgili hub injeckt edilmiþ de olur. Böylece DI kullanýlarak istenilen yerde çaðrýlabilir.
-            endpoints.MapHub<MyHub>("/myhub"); 
+            endpoints.MapHub<LoginHub>("/login");
+            endpoints.MapHub<MessageHub>("/message");
         });
         app.Run();
     }
